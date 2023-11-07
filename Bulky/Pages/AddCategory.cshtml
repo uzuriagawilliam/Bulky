@@ -1,0 +1,48 @@
+﻿@page
+@model AddCategoryModel
+@{
+    ViewBag.Title = "Add Category";
+}
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">
+             Add a new category</h2>
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+    <div>
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="Category.Name" class="form-label">Name</label>
+                <input asp-for="Category.Name" class="form-control">
+                <span asp-validation-for="Category.Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Category.DisplayOrder" class="form-label">Display Order</label>
+                <input asp-for="Category.DisplayOrder" class="form-control">
+                <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-primary form-control">Add Category</button>
+                </div>
+                <div class="col-6">
+                    <a asp-page="Categories" class="btn btn-primary form-control">
+                        <i class="bi bi-arrow-left-circle"></i> Back to Categories
+                    </a>
+                </div>           
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

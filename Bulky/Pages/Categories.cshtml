@@ -1,0 +1,56 @@
+﻿@page
+@model Bulky.Pages.CategoriesModel
+@{
+    ViewData["Title"] = "Categories";
+}
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">
+                Category List
+            </h2>
+        </div>
+        <div class="col-6">
+            <a asp-page="AddCategory" class="btn btn-primary">
+                <i class="bi bi-plus-square"></i> Create New Category
+            </a>
+        </div>
+
+    </div>
+    <div class="row pt-4 pb-3">
+        <div class="col-3">
+            <h3>Name</h3>
+        </div>
+        <div class="col-3">
+            <h3>Display number</h3>
+        </div>
+        <div class="col-6">
+            
+        </div>
+       
+    </div>
+@{
+    foreach(var category in Model.CatList.OrderBy(o => o.DisplayOrder))
+    {
+        
+            <div class="row pt-4 pb-3">
+                <div class="col-3">
+                    @category.Name
+                </div>
+                <div class="col-3 text-center">
+                    @category.DisplayOrder
+                </div>
+                <div class="col-6">
+                    <a asp-page="UpdateCategory" asp-route-id="@category.Id" class="btn btn-success">
+                        <i class="bi bi-pencil-square"></i>
+                        Edit
+                    </a>
+
+                    <a asp-page="DeleteCategory" asp-route-id="@category.Id" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> Delete
+                    </a>
+                </div>
+            </div>
+    }
+}
+</div>
